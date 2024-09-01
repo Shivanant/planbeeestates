@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/planbeeestates/static/css/main.2cf194c3.css",
+    "main.js": "/planbeeestates/static/js/main.f7893fc3.js",
+    "static/js/453.80359d66.chunk.js": "/planbeeestates/static/js/453.80359d66.chunk.js",
+    "index.html": "/planbeeestates/index.html",
+    "main.2cf194c3.css.map": "/planbeeestates/static/css/main.2cf194c3.css.map",
+    "main.f7893fc3.js.map": "/planbeeestates/static/js/main.f7893fc3.js.map",
+    "453.80359d66.chunk.js.map": "/planbeeestates/static/js/453.80359d66.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cf194c3.css",
+    "static/js/main.f7893fc3.js"
+  ]
+}
