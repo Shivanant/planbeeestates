@@ -1,0 +1,55 @@
+.floating-tile {
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    
+    /* right: 20px; */
+    display: flex;
+    flex-direction: row; /* Change from column to row */
+    gap: 10px;
+    z-index: 1000;
+  }
+  
+  /* Hide tile by default */
+  .tile-button {
+    display: none;
+  }
+  
+  /* Show tile only on screens smaller than 768px (typically mobile screens) */
+  @media only screen and (max-width: 768px) {
+    .tile-button {
+      display: flex;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      background-color: #1A237E;
+      color: white;
+      font-size: 16px;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .tile-button i {
+      margin-right: 10px;
+    }
+  
+    .tile-button.whatsapp {
+      background-color: #25D366;
+    }
+  
+    .tile-button.call {
+      background-color: #008CBA;
+    }
+  
+    .tile-button.enquire {
+      background-color: #FF5733;
+    }
+  
+    .tile-button:hover {
+      opacity: 0.9;
+    }
+  }
+  

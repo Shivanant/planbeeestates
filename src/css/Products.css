@@ -1,0 +1,111 @@
+.properties-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.properties-section h2 {
+    font-size: 2.5em;
+    color: #1d3557;
+    margin-bottom: 20px;
+}
+
+.properties-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping of items on smaller screens */
+    gap: 20px;
+    padding: 25px;
+}
+
+.property-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease;
+    position: relative; /* Position for the badge */
+}
+
+.property-card:hover {
+    transform: scale(1.05);
+}
+
+.property-badge {
+    position: absolute;
+    background-color: #f08a5d;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: 10px;
+    left: 10px;
+}
+
+.property-badge.for-sale {
+    background-color: #f08a5d;
+}
+
+.property-badge.for-rent {
+    background-color: #e63946;
+}
+
+.property-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.property-details {
+    padding: 15px;
+    text-align: left;
+}
+
+.property-details h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #1d3557;
+}
+
+.property-details p {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2a9d8f;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Medium devices (tablets, 768px and above) */
+@media (max-width: 1024px) {
+    .properties-container {
+        justify-content: space-around;
+    }
+
+    .property-card {
+        width: 45%; /* Two items per row on tablet screens */
+    }
+}
+
+/* Small devices (mobile phones, 600px and below) */
+@media (max-width: 600px) {
+    .properties-section h2 {
+        font-size: 2em; /* Slightly smaller heading */
+    }
+
+    .property-card {
+        width: 100%; /* One item per row on mobile screens */
+    }
+
+    .property-details h3 {
+        font-size: 1em; /* Smaller title font size */
+    }
+
+    .price {
+        font-size: 1.2em;
+    }
+}

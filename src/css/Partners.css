@@ -1,0 +1,47 @@
+.partners-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Light background color */
+  }
+  
+  .partners-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .partners-logos-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .partners-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: scroll 20s linear infinite;
+  }
+  
+  .partner-logo {
+    display: inline-block;
+    margin-right: 30px;
+    width: 150px; /* Adjust logo size */
+    height: auto;
+  }
+  
+  .partner-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  /* Animation for scrolling effect */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  

@@ -25,6 +25,7 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>PlanBeeEstate</title>
+    <script src="https://kit.fontawesome.com/01ab678c2c.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -40,4 +41,19 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+   <!-- Jquery needed -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="js/scripts.js"></script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+   <script>
+       $(window).scroll(function() {
+           if ($(document).scrollTop() > 50) {
+               $('.nav').addClass('affix');
+               console.log("OK");
+           } else {
+               $('.nav').removeClass('affix');
+           }
+       });
+   </script>
 </html>

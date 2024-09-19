@@ -1,0 +1,15 @@
+.terms-condition{
+    padding: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.terms-condition h1{
+    color: #1A237E;
+}
+@media (max-width: 600px) {
+    .terms-condition{
+        padding: 130px 10px;
+    }
+}

@@ -1,0 +1,99 @@
+.home{
+    /* background-image: url("./../../public/home1.png"); */
+    /* background-image: url("./../../public/home2.jpg"); */
+    /* background-image: url("./../../public/home3.jpg"); */
+    background: rgba(0, 0, 0, 0.5) url("./../../public/home3.jpg");
+    background-blend-mode: darken;
+    background-position: center ;
+    background-size: cover;
+    color: black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.main-box {
+    text-align: center;
+    /* background: rgba(0, 0, 0, 0.5); Transparent background for better text readability */
+    padding: 50px;
+    border-radius: 10px;
+    color:white
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: auto;
+}
+.content-btn  a {
+    
+    margin :auto;
+
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    /* background-color: #e63946; */
+    background-color: #1A237E;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Responsive Design */
+
+/* Large Devices (Desktops) */
+@media (min-width: 1024px) {
+    .home {
+        height: 100vh;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 1024px) {
+    .content h1 {
+        font-size: 2.5em;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 600px) {
+    .main-box {
+        padding: 30px;
+    }
+
+    .content h1 {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
