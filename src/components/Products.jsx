@@ -1,51 +1,97 @@
-import "./../css/Products.css"
+import React, { useState } from "react";
+import "./../css/Products.css";
+import { propertyData } from "../constants/propertyData";
+import { useNavigate } from "react-router-dom";
 
-const Products=()=>{
-    return(
-        <div class="properties-section" id="Projects">
-    <h2>Popular Properties</h2>
-    <div class="properties-container">
-        
-    <div class="property-card">
-            {/* <div class="property-badge for-sale">For Sale</div> */}
-            <img src="houses/house1.jpg" alt="Property Image 1"></img>
-            <div class="property-details">
-                <h3>Comfortable Apartment in Palace</h3>
-                <p>Popular Properties</p>
-                <span class="price">From $20k</span>
+const Products = () => {
+  const [showMore, setShowMore] = useState({}); // State for show more/less for description
+  const [selectedProperty, setSelectedProperty] = useState(null); // State for modal
+  const [visibleProperties, setVisibleProperties] = useState(4); // Initially show 4 properties
+  const navigate = useNavigate();
+
+  // Toggle description show more/less
+  const toggleShowMore = (id) => {
+    setShowMore((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id], // Toggle showMore state for each property
+    }));
+  };
+
+  const openModal = (property) => {
+    setSelectedProperty(property); // Set selected property to show in the modal
+  };
+
+  const closeModal = () => {
+    setSelectedProperty(null); // Close modal
+  };
+
+  const handleShowMoreClick = () => {
+    setVisibleProperties((prev) => prev + 4); // Show 4 more properties on each click
+  };
+
+  const handleNavigate = () => {
+    navigate(`/residential`, { replace: true });
+  };
+
+  return (
+    <div className="properties-section" id="Projects">
+      <h2>Popular Properties</h2>
+      <div className="properties-container">
+        {propertyData.slice(0, visibleProperties).map((property) => (
+          <div
+            className="property-card"
+            key={property.id}
+            onClick={() => openModal(property)}
+          >
+            <img src={property.image} alt={`Property Image ${property.id}`} />
+            <div className="property-details">
+              <h3>{property.name}</h3>
+              <p>
+                {showMore[property.id]
+                  ? property.description
+                  : `${property.description.substring(0, 80)}...`}{" "}
+                {property.description.length > 80 && (
+                  <span
+                    className="show-more-toggle"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Stop event bubbling
+                      toggleShowMore(property.id);
+                    }}
+                    style={{ color: "#2a9d8f", cursor: "pointer" }}
+                  >
+                    {showMore[property.id] ? "Show Less" : "Show More"}
+                  </span>
+                )}
+              </p>
+              <span className="price">{property.price}</span>
             </div>
-        </div><div class="property-card">
-            <img src="houses/house1.jpg" alt="Property Image 1"></img>
-            <div class="property-details">
-                <h3>Comfortable Apartment in Palace</h3>
-                <p>Popular Properties</p>
-                <span class="price">From $20k</span>
-            </div>
+          </div>
+        ))}
+      </div>
+
+      {selectedProperty && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-modal" onClick={closeModal}>
+              X
+            </button>
+            <img src={selectedProperty.image} alt={selectedProperty.name} />
+            <h2>{selectedProperty.name}</h2>
+            <p>{selectedProperty.description}</p>
+            <span className="price">{selectedProperty.price}</span>
+          </div>
         </div>
+      )}
 
-        <div class="property-card">
-            {/* <div class="property-badge for-rent">For Rent</div> */}
-            <img src="houses/house2.jpg" alt="Property Image 2"></img>
-            <div class="property-details">
-                <h3>Comfortable Apartment in Palace</h3>
-                <p>Popular Properties</p>
-                <span class="price">$563/month</span>
-            </div>
+      {visibleProperties < propertyData.length && (
+        <div className="show-more-btn-container">
+          <button className="btn" onClick={handleShowMoreClick}>
+            Show More
+          </button>
         </div>
-
-        <div class="property-card">
-            {/* <div class="property-badge for-sale">For Sale</div> */}
-            <img src="houses/house3.jpg" alt="Property Image 3"></img>
-            <div class="property-details">
-                <h3>Comfortable Apartment in Palace</h3>
-                <p>Popular Properties</p>
-                <span class="price">From $20k</span>
-            </div>
-        </div>
-
+      )}
     </div>
-</div>
-    )
-}
+  );
+};
 
 export default Products;

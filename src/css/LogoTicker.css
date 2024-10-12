@@ -1,0 +1,58 @@
+.logo-ticker {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f4f4f4;
+  padding: 30px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.logo-ticker h1{
+  font-size: 2.5em;
+    color: #1d3557;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.ticker-wrap {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-move {
+  display: flex;
+  animation: ticker 25s linear infinite;
+}
+
+.ticker-item {
+  min-width: 200px; /* Adjust based on your logo size */
+  margin: 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticker-item img {
+  width: 200px; /* Adjust size as necessary */
+  height: auto;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0); /* Start from the first logo */
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Scroll halfway (since we doubled the logos) */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo-ticker {
+    padding: 30px 5px;
+  }
+}

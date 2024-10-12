@@ -9,7 +9,7 @@ const Footer = () => {
         <p>Connect with us on social networks:</p>
         <div className="social-icons">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/profile.php?id=61564529636327&sfnsn=wiwspwa&mibextid=RUbZ1f"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -31,7 +31,7 @@ const Footer = () => {
             <i className="fab fa-instagram"></i>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/plan-bee-estate-49035b324/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -61,16 +61,19 @@ const Footer = () => {
           <h6>PROJECTS</h6>
           <ul className="contact-info">
             <li>
-              <a href="#">M3M</a>
+              <a href="#Products">M3M</a>
             </li>
             <li>
-              <a href="#">DLF</a>
+              <a href="#Products">Elan</a>
             </li>
             <li>
-              <a href="#">Trumph Tower</a>
+              <a href="#Products">Emar</a>
             </li>
             <li>
-              <a href="#">DDA</a>
+              <a href="#Products">Signature Global</a>
+            </li>
+            <li>
+              <a href="#Products">Rise</a>
             </li>
           </ul>
         </div>
@@ -106,7 +109,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>
-          &copy; 2024 Copyright: PlanBeeEstates.com | Agent RERA No: XXXXXXXX
+          &copy; 2024 Copyright: PlanBeeEstates.com | Agent RERA No: HRERA-PKL-REA-1394-2023
         </p>
         
       </div>

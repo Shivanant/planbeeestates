@@ -3,11 +3,11 @@ import '../css/Tile.css';
 
 const Tile = ({ handleEnquire }) => {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/123456789', '_blank');
+    window.open('https://wa.me/9891029137', '_blank');
   };
 
   const handleCall = () => {
-    window.open('tel:+123456789');
+    window.open('tel:9891029137');
   };
 
   return (

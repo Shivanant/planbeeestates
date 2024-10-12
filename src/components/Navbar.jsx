@@ -1,43 +1,48 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import '../css/Navbar.css';
-import { useLocation, useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navCheckRef = useRef();
-  const currentLocation = useLocation(); // Renaming the variable
+  const currentLocation = useLocation();
   const navigate = useNavigate();
+  
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const handleLogoClick=()=>{
-       navigate('/')
-  }
+  const handleLogoClick = () => {
+    navigate('/');
+  };
 
-  const handleNavItemClick = () => {
-    // Uncheck the checkbox to close the menu
+  const handleNavItemClick = (path, hash = '') => {
+    navigate(`${path}${hash}`, { replace: true });
+
     if (navCheckRef.current) {
       navCheckRef.current.checked = false;
     }
+    setDropdownOpen(false)
   };
 
-   // You can define styles for different routes
-   const getNavbarStyle = () => {
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const getNavbarStyle = () => {
     switch (currentLocation.pathname) {
       case '/privacy':
-        return { backgroundColor: "#1A237E" };
       case '/terms-condition':
-        return { backgroundColor: "#1A237E" };
+        return { backgroundColor: '#1A237E' };
       case '/contact':
         return { backgroundColor: 'red' };
       default:
-        return {  };
+        return {};
     }
   };
 
   return (
     <nav className="nav" style={getNavbarStyle()}>
       <input type="checkbox" id="nav-check" ref={navCheckRef} />
-      <div className="nav-header" >
+      <div className="nav-header">
         <div className="nav-logo" onClick={handleLogoClick}>
-          {/* <img src="./pblogo.png" alt="logo" />  */}
           <h3>PlanBeeEstate</h3>
         </div>
       </div>
@@ -51,16 +56,34 @@ const Navbar = () => {
 
       <ul className="nav-list">
         <li>
-          <a href="./" onClick={handleNavItemClick}>Home</a>
+          <a onClick={() => handleNavItemClick('/', '#Home')}>
+            Home
+          </a>
+        </li>
+        <li className="dropdown">
+          <a onClick={toggleDropdown}>
+            Projects
+          </a>
+          {dropdownOpen && (
+            <div className="dropdown-menu">
+              <li onClick={() => handleNavItemClick('/residential')}>
+                Residential
+              </li>
+              <li onClick={() => handleNavItemClick('/comercial')}>
+                Commercial
+              </li>
+            </div>
+          )}
         </li>
         <li>
-          <a href="#Projects" onClick={handleNavItemClick}>Projects</a>
+          <a onClick={() => handleNavItemClick('/', '#About')}>
+            About
+          </a>
         </li>
         <li>
-          <a href="#About" onClick={handleNavItemClick}>About</a>
-        </li>
-        <li>
-          <a href="#ContactUs" onClick={handleNavItemClick}>Contact</a>
+          <a onClick={() => handleNavItemClick('/', '#ContactUs')}>
+            Contact
+          </a>
         </li>
       </ul>
     </nav>

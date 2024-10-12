@@ -54,6 +54,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .property-details {
@@ -77,6 +78,64 @@
     font-weight: bold;
     color: #2a9d8f;
 }
+
+.property-details p {
+    font-size: 0.9em;
+    color: #6c757d;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limits the number of lines to 2 */
+    -webkit-box-orient: vertical;
+  }
+  
+  .show-more-toggle {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  .btn {
+    text-decoration: none;
+    color: white;
+    /* background-color: #e63946; */
+    background-color: #1A237E;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+.show-more-btn-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .properties-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .btn {
+    text-decoration: none;
+    color: white;
+    background-color: #1A237E;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: white;
+    color: black;
+  }
+  
 
 /* RESPONSIVE DESIGN */
 
@@ -109,3 +168,76 @@
         font-size: 1.2em;
     }
 }
+
+/* Existing CSS for property cards */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .modal-content h2 {
+    font-size: 2em;
+    margin: 20px 0;
+    color: #1d3557;
+  }
+  
+  .modal-content p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #6c757d;
+  }
+  
+  .modal-content .price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2a9d8f;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f08a5d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+  }
+  
+  .close-modal:hover {
+    background-color: #e63946;
+  }
+  
+  /* Blur the background when the modal is open */
+  .modal-overlay ~ .properties-container {
+    filter: blur(5px);
+  }
+  
